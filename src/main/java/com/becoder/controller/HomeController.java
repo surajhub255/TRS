@@ -73,29 +73,13 @@ public class HomeController {
         return "user/Restaurants";
     }
 
-//    @GetMapping("/Places")
-//    public String getAllPlaces(Model model){
-//        List<Places> placesList = userService.getAllPlaces();
-//        model.addAttribute("Places", placesList);
-//        return "user/Places";
-//    }
-
-    @Autowired
-    private PlacesRepository placesRepository;
-
     @GetMapping("/Places")
-    public String searchPage(Model model) {
-        List<Places> allPlaces = placesRepository.findAll();
-        model.addAttribute("Places", allPlaces);
+    public String getAllPlaces(Model model){
+        List<Places> placesList = userService.getAllPlaces();
+        model.addAttribute("Places", placesList);
         return "user/Places";
     }
 
-    @PostMapping("/Places")
-    public String searchResults(@RequestParam("placesCity") String city, Model model) {
-        List<Places> searchResults = placesRepository.findByCity(city);
-        model.addAttribute("Places", searchResults);
-        return "user/Places";
-    }
 
 
     @PostMapping("/createUser")

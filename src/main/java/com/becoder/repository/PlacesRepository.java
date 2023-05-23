@@ -9,6 +9,4 @@ import java.util.List;
 
 @Repository
 public interface PlacesRepository extends JpaRepository<Places,Integer> {
-    List<Places> findByCity(String city);
-
 }
